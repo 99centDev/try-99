@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://05esg6epm77d"]
+[gd_scene load_steps=64 format=3 uid="uid://05esg6epm77d"]
 
 [ext_resource type="Script" uid="uid://cut1oj80xjqy3" path="res://scripts/player/player.gd" id="1_o4126"]
 [ext_resource type="Texture2D" uid="uid://ds0f64l3fwwqd" path="res://sprites/player/char_idle_down_anim_strip_6.png" id="2_2hyy3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dhf56djsgmuwj" path="res://sprites/player/char_run_up_anim_strip_6.png" id="9_ih8y6"]
 [ext_resource type="Script" uid="uid://cl8ju2pcmd8sl" path="res://scripts/state_machine/state_machine.gd" id="10_o4126"]
 [ext_resource type="Script" uid="uid://bq5lvhy1dqpbh" path="res://scripts/player/run.gd" id="11_d3wef"]
+[ext_resource type="Script" uid="uid://d0tcxpejm8ya5" path="res://scripts/player/dash.gd" id="12_dash"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lffm"]
 atlas = ExtResource("2_2hyy3")
@@ -408,7 +409,8 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_wo1e1")
 
 [node name="dash_duration" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
+one_shot = true
 
 [node name="dash_cooldown" type="Timer" parent="."]
 wait_time = 0.5
@@ -423,3 +425,6 @@ script = ExtResource("9_6eyey")
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("11_d3wef")
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("12_dash")
