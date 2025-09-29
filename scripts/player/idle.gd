@@ -2,7 +2,7 @@ extends PlayerStateBase
 
 func on_physics_process(delta: float) -> void:
 	player.velocity = Vector2.ZERO
-	#update_animation("idle")
+	update_animation("idle")
 	player.move_and_slide()
 	
 func on_input(event):

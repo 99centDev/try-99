@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://negme6yfv4te" path="res://sprites/player/char_run_right_anim_strip_6.png" id="8_x8k1v"]
 [ext_resource type="Script" uid="uid://i4vpe3oq0g5m" path="res://scripts/player/idle.gd" id="9_6eyey"]
 [ext_resource type="Texture2D" uid="uid://dhf56djsgmuwj" path="res://sprites/player/char_run_up_anim_strip_6.png" id="9_ih8y6"]
-[ext_resource type="Script" uid="uid://bhg25fbop1dgq" path="res://scripts/player/player_state_base.gd" id="10_o4126"]
+[ext_resource type="Script" uid="uid://cl8ju2pcmd8sl" path="res://scripts/state_machine/state_machine.gd" id="10_o4126"]
 [ext_resource type="Script" uid="uid://bq5lvhy1dqpbh" path="res://scripts/player/run.gd" id="11_d3wef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lffm"]
@@ -414,8 +414,9 @@ wait_time = 0.2
 wait_time = 0.5
 one_shot = true
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
 script = ExtResource("10_o4126")
+default_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("9_6eyey")

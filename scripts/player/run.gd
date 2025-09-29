@@ -2,7 +2,7 @@ extends PlayerStateBase
 
 func on_physics_process(delta: float) -> void:
 	var input_direction = get_direction_input()
-	player.velocity = input_direction * 100
+	player.velocity = input_direction * player.speed
 	update_animation("run")
 	player.move_and_slide()
 			
