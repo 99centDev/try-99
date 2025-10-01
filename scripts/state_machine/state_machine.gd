@@ -5,6 +5,7 @@ extends Node
 
 @export var default_state: StateBase
 var current_state: StateBase = null
+var previous_state: StateBase = null
 
 func _ready():
 	call_deferred("_state_default_start")
@@ -21,6 +22,7 @@ func _state_start() -> void:
 
 func change_to(new_state: String) -> void:
 	if current_state and current_state.has_method("end") : current_state.end()
+	previous_state = current_state
 	current_state = get_node(new_state)
 	_state_start()	
 	

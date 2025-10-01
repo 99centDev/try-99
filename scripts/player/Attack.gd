@@ -4,7 +4,6 @@ const ATTACK_OFFSET = 10
 
 func start() -> void:
 	super()
-	player.velocity = Vector2.ZERO
 	update_animation("attack")
 	player.attack_duration.start(player.attack_duration_time)
 	
@@ -25,6 +24,13 @@ func end() -> void:
 	player.attack_area_shape.disabled = true
 
 func on_physics_process(delta: float) -> void:
+	if state_machine.previous_state.name == "Run":
+		var input_direction = get_direction_input()
+		player.velocity = input_direction * player.speed
+		player.move_and_slide()
+	else:
+		player.velocity = Vector2.ZERO
+
 	if player.attack_duration.is_stopped():
 		var input_direction = get_direction_input()
 		if input_direction != Vector2.ZERO:
