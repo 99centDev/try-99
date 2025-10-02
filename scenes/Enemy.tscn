@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxo0nj42dj04"]
+
+[ext_resource type="Script" uid="uid://cx2stm07n3e84" path="res://scripts/enemy/enemy.gd" id="1_enemy"]
+[ext_resource type="Script" uid="uid://cl8ju2pcmd8sl" path="res://scripts/state_machine/state_machine.gd" id="3_statemachine"]
+[ext_resource type="Script" uid="uid://bi77ev7iuhfgm" path="res://scripts/enemy/idle.gd" id="4_idle"]
+[ext_resource type="Script" uid="uid://boi2jia5jcllj" path="res://scripts/enemy/hurt.gd" id="5_hurt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(19, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hurtbox"]
+size = Vector2(22, 22)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 3
+script = ExtResource("1_enemy")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_hurtbox")
+
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
+script = ExtResource("3_statemachine")
+default_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_idle")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("5_hurt")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
