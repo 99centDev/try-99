@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var animated_sprite: AnimatedSprite2D = $Sprite2D
 
-@export var knockback_speed = 120
+@export var knockback_speed = 24
 
 var knockback_direction = Vector2.ZERO
 

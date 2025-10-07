@@ -13,6 +13,6 @@ extends CharacterBody2D
 @export var dash_duration_time = 0.18
 @export var dash_cooldown_time = 0.6
 @export var attack_duration_time = 0.2
-@export var knockback_strength = 8
+@export var knockback_strength = 0
 
 var last_direction := "down"

@@ -330,7 +330,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_down",
-"speed": 12.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -353,7 +353,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_left",
-"speed": 12.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -376,7 +376,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_right",
-"speed": 12.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -399,7 +399,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_up",
-"speed": 12.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -599,6 +599,7 @@ script = ExtResource("1_o4126")
 sprite_frames = SubResource("SpriteFrames_mhxdx")
 animation = &"attack_up"
 autoplay = "idle_down"
+frame_progress = 0.30647865
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wo1e1")
