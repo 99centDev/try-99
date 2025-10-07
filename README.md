@@ -9,6 +9,7 @@ El objetivo principal ha sido refactorizar el control del personaje a una Máqui
 *   **Movimiento**: Movimiento en 8 direcciones.
 *   **Dash**: Un movimiento rápido de evasión con cooldown.
 *   **Ataque**: Al presionar el click, se activa un área de ataque.
+*   **Detección de Daño**: El enemigo tiene una `Hurtbox` que, al entrar en contacto con el `AttackArea` del jugador, lo pone en estado "Hurt".
 
 ## Contexto Técnico
 
