@@ -590,7 +590,7 @@ animations = [{
 size = Vector2(8, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61ith"]
-size = Vector2(20, 6)
+size = Vector2(14, 6)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_o4126")
@@ -599,7 +599,7 @@ script = ExtResource("1_o4126")
 sprite_frames = SubResource("SpriteFrames_mhxdx")
 animation = &"attack_up"
 autoplay = "idle_down"
-frame_progress = 0.30647865
+frame_progress = 0.7443727
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wo1e1")
