@@ -1,6 +1,6 @@
 extends PlayerStateBase
 
-const ATTACK_OFFSET = 8
+const ATTACK_OFFSET = 10
 
 func start() -> void:
 	super()

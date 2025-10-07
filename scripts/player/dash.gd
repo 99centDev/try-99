@@ -2,6 +2,7 @@ extends PlayerStateBase
 
 func start() -> void:
 	super()
+	player.collision_shape.disabled = true
 	# TODO: Add a dash animation and sound
 	# animated_sprite.play("dash_" + last_direction)
 	
@@ -12,6 +13,10 @@ func start() -> void:
 	player.velocity = dash_vector.normalized() * player.dash_speed
 	player.dash_duration.start(player.dash_duration_time)
 	player.move_and_slide()
+
+func end() -> void:
+	player.collision_shape.disabled = false
+
 
 func on_physics_process(_delta: float) -> void:
 	player.move_and_slide()
